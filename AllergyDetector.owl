@@ -97,18 +97,18 @@
     <owl:ObjectProperty rdf:about="&AllergyDetector;ContidoNoPrato">
         <rdfs:comment
             >Funcao inversa da propriedade TemIngrediente.Informa os pratos que possuem aquele ingrediente(s).</rdfs:comment>
-        <rdfs:range>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&AllergyDetector;ContidoNoPrato"/>
-                <owl:someValuesFrom rdf:resource="&AllergyDetector;Pratos_Restaurante"/>
-            </owl:Restriction>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&AllergyDetector;ContidoNoPrato"/>
                 <owl:someValuesFrom rdf:resource="&AllergyDetector;Derivados_Dos_Oito_Principais_Alergenicos"/>
             </owl:Restriction>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&AllergyDetector;ContidoNoPrato"/>
+                <owl:someValuesFrom rdf:resource="&AllergyDetector;Pratos_Restaurante"/>
+            </owl:Restriction>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -137,18 +137,18 @@
     <!-- file://C:/Users/Nelson/workspace/JenaTutorial/src/br/com/allergydetector/resources/AllergyDetector.owl#ProteinaContida -->
 
     <owl:ObjectProperty rdf:about="&AllergyDetector;ProteinaContida">
-        <rdfs:domain>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&AllergyDetector;ProteinaContida"/>
-                <owl:someValuesFrom rdf:resource="&AllergyDetector;Proteinas"/>
-            </owl:Restriction>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&AllergyDetector;ProteinaContida"/>
                 <owl:someValuesFrom rdf:resource="&AllergyDetector;Oito_Principais_Alergenicos"/>
             </owl:Restriction>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&AllergyDetector;ProteinaContida"/>
+                <owl:someValuesFrom rdf:resource="&AllergyDetector;Proteinas"/>
+            </owl:Restriction>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -180,18 +180,18 @@
     <owl:ObjectProperty rdf:about="&AllergyDetector;ServidoPor">
         <rdfs:comment
             >Funcao inversa da propriedade TemPrato.Informa os restaurantes que servem aquele prato(s).</rdfs:comment>
-        <rdfs:domain>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&AllergyDetector;ServidoPor"/>
-                <owl:someValuesFrom rdf:resource="&AllergyDetector;Pratos_Restaurante"/>
-            </owl:Restriction>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&AllergyDetector;ServidoPor"/>
                 <owl:someValuesFrom rdf:resource="Restaurante"/>
             </owl:Restriction>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&AllergyDetector;ServidoPor"/>
+                <owl:someValuesFrom rdf:resource="&AllergyDetector;Pratos_Restaurante"/>
+            </owl:Restriction>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -200,18 +200,18 @@
 
     <owl:ObjectProperty rdf:about="Deriva">
         <owl:inverseOf rdf:resource="&AllergyDetector;DerivaDe"/>
-        <rdfs:range>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="Deriva"/>
-                <owl:someValuesFrom rdf:resource="&AllergyDetector;Derivados_Dos_Oito_Principais_Alergenicos"/>
-            </owl:Restriction>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="Deriva"/>
                 <owl:someValuesFrom rdf:resource="&AllergyDetector;Oito_Principais_Alergenicos"/>
             </owl:Restriction>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="Deriva"/>
+                <owl:someValuesFrom rdf:resource="&AllergyDetector;Derivados_Dos_Oito_Principais_Alergenicos"/>
+            </owl:Restriction>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -1307,7 +1307,9 @@
         <AllergyDetector:LocalWebSite rdf:datatype="&xsd;string"
             >http://www.subway.com.br/lista-alergenicos</AllergyDetector:LocalWebSite>
         <AllergyDetector:Nome>Subway</AllergyDetector:Nome>
-        <AllergyDetector:ServePrato rdf:resource="&AllergyDetector;Strogonoff"/>
+        <AllergyDetector:ServePrato rdf:resource="B.M.T."/>
+        <AllergyDetector:ServePrato rdf:resource="Frango_Teriyaki"/>
+        <AllergyDetector:ServePrato rdf:resource="Steak_Churrasco"/>
         <AllergyDetector:ServePrato rdf:resource="Subway_Melt"/>
     </owl:Thing>
     
@@ -1348,6 +1350,15 @@
     <AllergyDetector:Ingredientes rdf:about="Alface">
         <rdf:type rdf:resource="&owl;Thing"/>
     </AllergyDetector:Ingredientes>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/10/Alho -->
+
+    <owl:Thing rdf:about="Alho">
+        <rdf:type rdf:resource="&AllergyDetector;Ingredientes"/>
+        <Nome>Alho</Nome>
+    </owl:Thing>
     
 
 
@@ -1480,6 +1491,17 @@
         <NomeEmIngles rdf:datatype="&xsd;string">Hazel</NomeEmIngles>
         <AllergyDetector:Nome>Avelas</AllergyDetector:Nome>
         <AllergyDetector:DerivaDe rdf:resource="&AllergyDetector;Amendoas_Oriundas_De_Arvores"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/10/B.M.T. -->
+
+    <owl:Thing rdf:about="B.M.T.">
+        <rdf:type rdf:resource="&AllergyDetector;Pratos_Restaurante"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="&AllergyDetector;Salame"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="Pepperoni"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="Presunto"/>
     </owl:Thing>
     
 
@@ -1862,6 +1884,18 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2014/10/Frango_Teriyaki -->
+
+    <owl:Thing rdf:about="Frango_Teriyaki">
+        <rdf:type rdf:resource="&AllergyDetector;Pratos_Restaurante"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="&AllergyDetector;Pao"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="Hamburguer_de_Frango"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="Molho_Shoyu"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="Molho_Teriyaki"/>
+    </owl:Thing>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2014/10/Gad_m_1 -->
 
     <owl:Thing rdf:about="Gad_m_1">
@@ -1985,6 +2019,15 @@
             >Proteina relacionada a especie Gallus Domesticus, nome cientifico da galinha que produz o ovo.</rdfs:comment>
         <AllergyDetector:Nome>Gal_d_6</AllergyDetector:Nome>
         <AllergyDetector:ProteinaContida rdf:resource="&AllergyDetector;Ovo"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/10/Gengibre -->
+
+    <owl:Thing rdf:about="Gengibre">
+        <rdf:type rdf:resource="&AllergyDetector;Ingredientes"/>
+        <Nome>Gengibre</Nome>
     </owl:Thing>
     
 
@@ -2240,6 +2283,25 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2014/10/Molho_Shoyu -->
+
+    <owl:Thing rdf:about="Molho_Shoyu">
+        <rdf:type rdf:resource="&AllergyDetector;Derivados_Dos_Oito_Principais_Alergenicos"/>
+        <AllergyDetector:DerivaDe rdf:resource="&AllergyDetector;Soja"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/10/Molho_Teriyaki -->
+
+    <AllergyDetector:Ingredientes rdf:about="Molho_Teriyaki">
+        <rdf:type rdf:resource="&AllergyDetector;Derivados_Dos_Oito_Principais_Alergenicos"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <AllergyDetector:DerivaDe rdf:resource="&AllergyDetector;Amendoim"/>
+    </AllergyDetector:Ingredientes>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2014/10/NaBrasa -->
 
     <owl:Thing rdf:about="NaBrasa">
@@ -2351,6 +2413,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2014/10/Pepperoni -->
+
+    <AllergyDetector:Ingredientes rdf:about="Pepperoni">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <Nome>Pepperoni</Nome>
+    </AllergyDetector:Ingredientes>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2014/10/Picles -->
 
     <AllergyDetector:Ingredientes rdf:about="Picles">
@@ -2370,6 +2441,15 @@
             >Proteina relacionada a especie Portunus Pelagicus, nome cientifico do Siri.</rdfs:comment>
         <AllergyDetector:ProteinaContida rdf:resource="&AllergyDetector;Siri"/>
     </AllergyDetector:Proteinas>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/10/Presunto -->
+
+    <owl:Thing rdf:about="Presunto">
+        <rdf:type rdf:resource="&AllergyDetector;Ingredientes"/>
+        <Nome>Presunto</Nome>
+    </owl:Thing>
     
 
 
@@ -2440,10 +2520,21 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2014/10/Steak_Churrasco -->
+
+    <owl:Thing rdf:about="Steak_Churrasco">
+        <rdf:type rdf:resource="&AllergyDetector;Pratos_Restaurante"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="&AllergyDetector;Hamburguer"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="&AllergyDetector;Pao"/>
+    </owl:Thing>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2014/10/Subway_Melt -->
 
     <AllergyDetector:Pratos_Restaurante rdf:about="Subway_Melt">
         <rdf:type rdf:resource="&owl;Thing"/>
+        <AllergyDetector:ContemIngrediente rdf:resource="&AllergyDetector;Pao"/>
         <AllergyDetector:ContemIngrediente rdf:resource="&AllergyDetector;Queijo"/>
         <AllergyDetector:ContemIngrediente rdf:resource="Bacon"/>
         <AllergyDetector:ContemIngrediente rdf:resource="Peito_de_Peru"/>
