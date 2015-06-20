@@ -137,18 +137,18 @@
     <!-- file://C:/Users/Nelson/workspace/JenaTutorial/src/br/com/allergydetector/resources/AllergyDetector.owl#ProteinaContida -->
 
     <owl:ObjectProperty rdf:about="&AllergyDetector;ProteinaContida">
-        <rdfs:range>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&AllergyDetector;ProteinaContida"/>
-                <owl:someValuesFrom rdf:resource="&AllergyDetector;Oito_Principais_Alergenicos"/>
-            </owl:Restriction>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&AllergyDetector;ProteinaContida"/>
                 <owl:someValuesFrom rdf:resource="&AllergyDetector;Proteinas"/>
             </owl:Restriction>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&AllergyDetector;ProteinaContida"/>
+                <owl:someValuesFrom rdf:resource="&AllergyDetector;Oito_Principais_Alergenicos"/>
+            </owl:Restriction>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -180,18 +180,18 @@
     <owl:ObjectProperty rdf:about="&AllergyDetector;ServidoPor">
         <rdfs:comment
             >Funcao inversa da propriedade TemPrato.Informa os restaurantes que servem aquele prato(s).</rdfs:comment>
-        <rdfs:range>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&AllergyDetector;ServidoPor"/>
-                <owl:someValuesFrom rdf:resource="Restaurante"/>
-            </owl:Restriction>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&AllergyDetector;ServidoPor"/>
                 <owl:someValuesFrom rdf:resource="&AllergyDetector;Pratos_Restaurante"/>
             </owl:Restriction>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&AllergyDetector;ServidoPor"/>
+                <owl:someValuesFrom rdf:resource="Restaurante"/>
+            </owl:Restriction>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -200,18 +200,18 @@
 
     <owl:ObjectProperty rdf:about="Deriva">
         <owl:inverseOf rdf:resource="&AllergyDetector;DerivaDe"/>
-        <rdfs:domain>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="Deriva"/>
-                <owl:someValuesFrom rdf:resource="&AllergyDetector;Oito_Principais_Alergenicos"/>
-            </owl:Restriction>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="Deriva"/>
                 <owl:someValuesFrom rdf:resource="&AllergyDetector;Derivados_Dos_Oito_Principais_Alergenicos"/>
             </owl:Restriction>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="Deriva"/>
+                <owl:someValuesFrom rdf:resource="&AllergyDetector;Oito_Principais_Alergenicos"/>
+            </owl:Restriction>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1385,7 +1385,7 @@
         <NomeEmIngles rdf:datatype="&xsd;string">Almond</NomeEmIngles>
         <NomeCientifico rdf:datatype="&xsd;string">Prunus Dulcis</NomeCientifico>
         <AllergyDetector:Nome>Amendoas</AllergyDetector:Nome>
-        <AllergyDetector:DerivaDe rdf:resource="&AllergyDetector;Amendoas_Oriundas_De_Arvores"/>
+        <AllergyDetector:DerivaDe rdf:resource="Amendoas"/>
     </owl:Thing>
     
 
